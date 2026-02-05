@@ -75,11 +75,11 @@ const Footer: React.FC = () => {
                 hello@axoonetechsolution.com
               </a>
               <a
-                href="tel:+6281234567890"
+                href="tel:+6281574865632"
                 className="flex items-center gap-3 text-gray-400 hover:text-purple-400 transition-colors"
               >
                 <FaPhone className="text-purple-500" />
-                +62 812 3456 7890
+                +62 815 7486 5632
               </a>
               <div className="flex items-start gap-3 text-gray-400">
                 <FaMapMarkerAlt className="text-purple-500 mt-1" />

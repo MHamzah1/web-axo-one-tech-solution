@@ -28,8 +28,8 @@ const contactInfo = [
   {
     icon: HiPhone,
     title: "Telepon",
-    value: "+62 812 3456 7890",
-    link: "tel:+6281234567890",
+    value: "+62 815 7486 5632",
+    link: "tel:+6281574865632",
     color: "from-pink-500 to-rose-600",
   },
   {
@@ -474,7 +474,7 @@ export default function ContactPage() {
                 </p>
                 <div className="space-y-4">
                   <a
-                    href="https://wa.me/6281234567890"
+                    href="https://wa.me/6281574865632"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-4 p-4 rounded-xl bg-green-600/10 border border-green-600/20 hover:border-green-600/50 transition-colors group"

@@ -176,21 +176,13 @@ export default function HomePage() {
         {/* Background */}
         <div className="absolute inset-0">
           <FloatingLines
-            lineGradient={[
-              "#8b5cf6", // purple
-              "#a855f7",
-              "#d946ef", // pink
-              "#ec4899",
-              "#06b6d4", // cyan
-            ]}
-            enableTop={true}
-            enableMiddle={true}
-            enableBottom={true}
-            topLineCount={8}
-            middleLineCount={6}
-            bottomLineCount={10}
-            animationSpeed={0.5}
+            enabledWaves={["top", "middle", "bottom"]}
+            lineCount={8}
+            lineDistance={5}
+            bendRadius={5}
+            bendStrength={-0.5}
             interactive={true}
+            parallax={true}
           />
         </div>
 
@@ -645,7 +637,7 @@ export default function HomePage() {
                 <HiArrowRight />
               </Link>
               <a
-                href="https://wa.me/6281234567890"
+                href="https://wa.me/6281574865632"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-4 border border-purple-500/30 rounded-full font-semibold text-white hover:bg-purple-600/10 transition-all flex items-center gap-2"
