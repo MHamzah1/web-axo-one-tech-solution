@@ -1,65 +1,663 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import React from "react";
+import dynamic from "next/dynamic";
+import Link from "next/link";
+import { motion } from "motion/react";
+import {
+  HiCode,
+  HiDeviceMobile,
+  HiCloud,
+  HiCog,
+  HiLightningBolt,
+  HiChartBar,
+  HiArrowRight,
+  HiCheck,
+} from "react-icons/hi";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiNodedotjs,
+  SiTailwindcss,
+  SiMongodb,
+  SiPostgresql,
+  SiDocker,
+  SiAmazon,
+  SiFlutter,
+  SiFirebase,
+  SiFigma,
+} from "react-icons/si";
+
+import Navbar from "@/components/view/Navbar";
+import Footer from "@/components/view/Footer";
+import SpotlightCard from "@/components/component-react-bits/SpotlightCard/SpotlightCard";
+import GlitchText from "@/components/features/TextAnimations/GlitchText/GlitchText";
+
+// Dynamic imports for heavy components
+const FloatingLines = dynamic(
+  () => import("@/components/Backgrounds/FloatingLines/FloatingLines"),
+  { ssr: false },
+);
+
+// Service data
+const services = [
+  {
+    icon: HiCode,
+    title: "Web Development",
+    description:
+      "Website modern, responsif, dan SEO-friendly dengan teknologi terkini seperti React, Next.js, dan Node.js.",
+    color: "from-purple-500 to-violet-600",
+  },
+  {
+    icon: HiDeviceMobile,
+    title: "Mobile Apps",
+    description:
+      "Aplikasi mobile cross-platform yang powerful dengan Flutter dan React Native untuk iOS dan Android.",
+    color: "from-pink-500 to-rose-600",
+  },
+  {
+    icon: HiCloud,
+    title: "Cloud Solutions",
+    description:
+      "Infrastruktur cloud yang scalable dan aman dengan AWS, Google Cloud, dan Azure.",
+    color: "from-cyan-500 to-blue-600",
+  },
+  {
+    icon: HiCog,
+    title: "Custom Systems",
+    description:
+      "Sistem kustom terintegrasi untuk ERP, CRM, dan automasi bisnis sesuai kebutuhan Anda.",
+    color: "from-orange-500 to-amber-600",
+  },
+  {
+    icon: HiLightningBolt,
+    title: "API Development",
+    description:
+      "RESTful API dan GraphQL yang robust untuk integrasi seamless antar sistem.",
+    color: "from-green-500 to-emerald-600",
+  },
+  {
+    icon: HiChartBar,
+    title: "Analytics & BI",
+    description:
+      "Dashboard analitik dan business intelligence untuk insight data yang actionable.",
+    color: "from-indigo-500 to-purple-600",
+  },
+];
+
+// Tech stack
+const techStack = [
+  { icon: SiReact, name: "React", color: "#61DAFB" },
+  { icon: SiNextdotjs, name: "Next.js", color: "#FFFFFF" },
+  { icon: SiTypescript, name: "TypeScript", color: "#3178C6" },
+  { icon: SiNodedotjs, name: "Node.js", color: "#339933" },
+  { icon: SiTailwindcss, name: "Tailwind", color: "#06B6D4" },
+  { icon: SiMongodb, name: "MongoDB", color: "#47A248" },
+  { icon: SiPostgresql, name: "PostgreSQL", color: "#4169E1" },
+  { icon: SiDocker, name: "Docker", color: "#2496ED" },
+  { icon: SiAmazon, name: "AWS", color: "#FF9900" },
+  { icon: SiFlutter, name: "Flutter", color: "#02569B" },
+  { icon: SiFirebase, name: "Firebase", color: "#FFCA28" },
+  { icon: SiFigma, name: "Figma", color: "#F24E1E" },
+];
+
+// Portfolio items
+const portfolioItems = [
+  {
+    title: "E-Commerce Platform",
+    category: "Web Development",
+    image:
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
+  },
+  {
+    title: "Healthcare App",
+    category: "Mobile Application",
+    image:
+      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop",
+  },
+  {
+    title: "Fintech Dashboard",
+    category: "UI/UX Design",
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+  },
+  {
+    title: "IoT Management System",
+    category: "Custom System",
+    image:
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop",
+  },
+];
+
+// Testimonials
+const testimonials = [
+  {
+    name: "Ahmad Rizky",
+    role: "CEO, TechStart Indonesia",
+    content:
+      "AxoOneTechSolution membantu kami membangun platform e-commerce yang luar biasa. Tim yang profesional dan hasil yang memuaskan!",
+    avatar:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
+  },
+  {
+    name: "Sarah Putri",
+    role: "Product Manager, HealthApp",
+    content:
+      "Pengembangan aplikasi mobile kami berjalan lancar berkat tim yang kompeten dan komunikatif. Sangat direkomendasikan!",
+    avatar:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
+  },
+  {
+    name: "Budi Santoso",
+    role: "CTO, Fintech Solutions",
+    content:
+      "Infrastruktur cloud yang dibangun sangat scalable dan aman. Kami sangat puas dengan hasilnya.",
+    avatar:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
+  },
+];
+
+// Stats
+const stats = [
+  { value: "150+", label: "Proyek Selesai" },
+  { value: "50+", label: "Klien Puas" },
+  { value: "5+", label: "Tahun Pengalaman" },
+  { value: "99%", label: "Tingkat Kepuasan" },
+];
+
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="min-h-screen overflow-hidden">
+      <Navbar />
+
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0">
+          <FloatingLines
+            lineGradient={[
+              "#8b5cf6", // purple
+              "#a855f7",
+              "#d946ef", // pink
+              "#ec4899",
+              "#06b6d4", // cyan
+            ]}
+            enableTop={true}
+            enableMiddle={true}
+            enableBottom={true}
+            topLineCount={8}
+            middleLineCount={6}
+            bottomLineCount={10}
+            animationSpeed={0.5}
+            interactive={true}
+          />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+        {/* Content */}
+        <div className="relative z-10 container mx-auto px-4 text-center">
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+            <span className="text-sm text-gray-300">
+              Solusi Digital Inovatif
+            </span>
+          </motion.div>
+
+          {/* Main Title */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Documentation
-          </a>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+              <span className="text-white">Wujudkan Ide </span>
+              <span className="gradient-text">Digital</span>
+              <br />
+              <span className="text-white">Menjadi </span>
+              <span className="gradient-text">Kenyataan</span>
+            </h1>
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10"
+          >
+            Kami adalah partner teknologi terpercaya untuk mengembangkan
+            website, aplikasi mobile, dan sistem digital yang inovatif untuk
+            bisnis Anda.
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          >
+            <Link
+              href="/contact"
+              className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-semibold text-white hover:opacity-90 transition-all glow-hover flex items-center gap-2"
+            >
+              Mulai Proyek Sekarang
+              <HiArrowRight />
+            </Link>
+            <Link
+              href="/portfolio"
+              className="px-8 py-4 glass rounded-full font-semibold text-white hover:bg-white/10 transition-all flex items-center gap-2"
+            >
+              Lihat Portfolio
+            </Link>
+          </motion.div>
+
+          {/* Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8"
+          >
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-gray-400 text-sm">{stat.label}</div>
+              </div>
+            ))}
+          </motion.div>
         </div>
-      </main>
-    </div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          className="absolute bottom-10 left-1/2 -translate-x-1/2"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+        >
+          <div className="w-6 h-10 rounded-full border-2 border-purple-500/50 flex items-start justify-center p-2">
+            <div className="w-1.5 h-2.5 bg-purple-500 rounded-full" />
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-24 relative">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              <span className="text-white">Layanan </span>
+              <span className="gradient-text">Unggulan</span>
+            </h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              Solusi teknologi lengkap untuk mengakselerasi transformasi digital
+              bisnis Anda dengan standar kualitas internasional.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <SpotlightCard
+                  className="h-full hover:border-purple-500/50 transition-colors cursor-pointer"
+                  spotlightColor="rgba(139, 92, 246, 0.15)"
+                >
+                  <div
+                    className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-5`}
+                  >
+                    <service.icon className="text-white text-2xl" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-3">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-400">{service.description}</p>
+                </SpotlightCard>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="text-center mt-12"
+          >
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-medium transition-colors"
+            >
+              Lihat Semua Layanan
+              <HiArrowRight />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Tech Stack Section */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/10 to-transparent" />
+
+        <div className="container mx-auto px-4 relative">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              <span className="text-white">Teknologi </span>
+              <span className="gradient-text">Andalan</span>
+            </h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              Kami menggunakan stack teknologi modern untuk membangun solusi
+              yang scalable, performant, dan mudah dimaintain.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            {techStack.map((tech, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                whileHover={{ scale: 1.1 }}
+                className="glass rounded-xl p-6 flex flex-col items-center justify-center gap-3 cursor-pointer hover:border-purple-500/50 transition-all"
+              >
+                <tech.icon className="text-4xl" style={{ color: tech.color }} />
+                <span className="text-sm text-gray-400">{tech.name}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-24 relative">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">
+                <span className="text-white">Mengapa </span>
+                <span className="gradient-text">Memilih Kami?</span>
+              </h2>
+              <p className="text-gray-400 mb-8">
+                Dengan pengalaman bertahun-tahun di industri teknologi, kami
+                berkomitmen untuk memberikan solusi terbaik yang sesuai dengan
+                kebutuhan bisnis Anda.
+              </p>
+
+              <div className="space-y-6">
+                {[
+                  {
+                    title: "Tim Ahli Berpengalaman",
+                    desc: "Developer dan designer senior dengan portfolio internasional",
+                  },
+                  {
+                    title: "Teknologi Terkini",
+                    desc: "Selalu update dengan perkembangan teknologi terbaru",
+                  },
+                  {
+                    title: "Support 24/7",
+                    desc: "Tim support yang siap membantu kapanpun Anda butuhkan",
+                  },
+                  {
+                    title: "Garansi Kualitas",
+                    desc: "Jaminan kepuasan dengan revisi tanpa batas selama masa garansi",
+                  },
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="flex items-start gap-4"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center flex-shrink-0">
+                      <HiCheck className="text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-white mb-1">
+                        {item.title}
+                      </h4>
+                      <p className="text-gray-400 text-sm">{item.desc}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative"
+            >
+              <div className="glass rounded-3xl p-8 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-purple-600/20 to-pink-600/20 blur-3xl" />
+                <div className="relative">
+                  <GlitchText
+                    className="!text-4xl md:!text-5xl !mx-0 mb-6"
+                    speed={0.8}
+                    enableShadows={true}
+                    enableOnHover={true}
+                  >
+                    AXOONE
+                  </GlitchText>
+                  <p className="text-gray-400 mb-8">
+                    Bergabunglah dengan 50+ perusahaan yang telah mempercayakan
+                    transformasi digital mereka kepada kami.
+                  </p>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-semibold text-white"
+                  >
+                    Konsultasi Gratis
+                    <HiArrowRight />
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio Preview Section */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/10 to-transparent" />
+
+        <div className="container mx-auto px-4 relative">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              <span className="text-white">Portfolio </span>
+              <span className="gradient-text">Terbaru</span>
+            </h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              Beberapa proyek yang telah kami kerjakan untuk klien dari berbagai
+              industri.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {portfolioItems.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="group relative rounded-2xl overflow-hidden cursor-pointer"
+              >
+                <div className="aspect-[16/10]">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6">
+                  <span className="text-purple-400 text-sm font-medium mb-2">
+                    {item.category}
+                  </span>
+                  <h3 className="text-xl font-semibold text-white">
+                    {item.title}
+                  </h3>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-center mt-12"
+          >
+            <Link
+              href="/portfolio"
+              className="inline-flex items-center gap-2 px-6 py-3 glass rounded-full font-semibold text-white hover:bg-white/10 transition-all"
+            >
+              Lihat Semua Portfolio
+              <HiArrowRight />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-24 relative">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              <span className="text-white">Apa Kata </span>
+              <span className="gradient-text">Klien Kami</span>
+            </h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              Testimoni dari klien yang telah bekerja sama dengan kami.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <SpotlightCard
+                  className="h-full"
+                  spotlightColor="rgba(236, 72, 153, 0.15)"
+                >
+                  <div className="flex items-center gap-4 mb-4">
+                    <img
+                      src={testimonial.avatar}
+                      alt={testimonial.name}
+                      className="w-12 h-12 rounded-full object-cover ring-2 ring-purple-500/30"
+                    />
+                    <div>
+                      <h4 className="font-semibold text-white">
+                        {testimonial.name}
+                      </h4>
+                      <p className="text-gray-400 text-sm">
+                        {testimonial.role}
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-gray-300 italic">
+                    &ldquo;{testimonial.content}&rdquo;
+                  </p>
+                </SpotlightCard>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-900/30 via-pink-900/30 to-cyan-900/30" />
+
+        <div className="container mx-auto px-4 relative">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="glass rounded-3xl p-12 md:p-16 text-center"
+          >
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              <span className="text-white">Siap Memulai </span>
+              <span className="gradient-text">Proyek Anda?</span>
+            </h2>
+            <p className="text-gray-400 max-w-2xl mx-auto mb-10">
+              Konsultasikan ide Anda dengan tim ahli kami secara gratis. Kami
+              siap membantu mewujudkan visi digital Anda.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href="/contact"
+                className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-semibold text-white hover:opacity-90 transition-all glow-hover flex items-center gap-2"
+              >
+                Hubungi Kami
+                <HiArrowRight />
+              </Link>
+              <a
+                href="https://wa.me/6281234567890"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 border border-purple-500/30 rounded-full font-semibold text-white hover:bg-purple-600/10 transition-all flex items-center gap-2"
+              >
+                Chat via WhatsApp
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
   );
 }
