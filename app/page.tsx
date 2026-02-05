@@ -3,7 +3,7 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { motion } from "motion/react";
+import { color, motion } from "motion/react";
 import {
   HiCode,
   HiDeviceMobile,
@@ -33,6 +33,7 @@ import Navbar from "@/components/view/Navbar";
 import Footer from "@/components/view/Footer";
 import SpotlightCard from "@/components/component-react-bits/SpotlightCard/SpotlightCard";
 import GlitchText from "@/components/features/TextAnimations/GlitchText/GlitchText";
+import LogoLoop from "@/components/features/Animations/LogoLoop/LogoLoop";
 
 // Dynamic imports for heavy components
 const FloatingLines = dynamic(
@@ -100,6 +101,81 @@ const techStack = [
   { icon: SiFlutter, name: "Flutter", color: "#02569B" },
   { icon: SiFirebase, name: "Firebase", color: "#FFCA28" },
   { icon: SiFigma, name: "Figma", color: "#F24E1E" },
+];
+
+const techLogos = [
+  {
+    node: <SiReact />,
+    title: "React",
+    href: "https://react.dev",
+    color: "#61DAFB",
+  },
+  {
+    node: <SiNextdotjs />,
+    title: "Next.js",
+    href: "https://nextjs.org",
+    color: "#FFFFFF",
+  },
+  {
+    node: <SiTypescript />,
+    title: "TypeScript",
+    href: "https://www.typescriptlang.org",
+    color: "#3178C6",
+  },
+  {
+    node: <SiTailwindcss />,
+    title: "Tailwind CSS",
+    href: "https://tailwindcss.com",
+    color: "#06B6D4",
+  },
+  {
+    node: <SiNodedotjs />,
+    title: "Node.js",
+    href: "https://nodejs.org",
+    color: "#339933",
+  },
+  {
+    node: <SiMongodb />,
+    title: "MongoDB",
+    href: "https://www.mongodb.com",
+    color: "#47A248",
+  },
+  {
+    node: <SiPostgresql />,
+    title: "PostgreSQL",
+    href: "https://www.postgresql.org",
+    color: "#4169E1",
+  },
+  {
+    node: <SiDocker />,
+    title: "Docker",
+    href: "https://www.docker.com",
+    color: "#2496ED",
+  },
+  {
+    node: <SiAmazon />,
+    title: "AWS",
+    href: "https://aws.amazon.com",
+    color: "#FF9900",
+  },
+  {
+    node: <SiFlutter />,
+    title: "Flutter",
+    href: "https://flutter.dev",
+    color: "#02569B",
+  },
+  {
+    node: <SiFirebase />,
+    title: "Firebase",
+    href: "https://firebase.google.com",
+    color: "#FFCA28",
+  },
+  {
+    node: <SiFigma />,
+    title: "Figma",
+    href: "https://www.figma.com",
+    color: "#F24E1E",
+  },
 ];
 
 // Portfolio items
@@ -365,22 +441,26 @@ export default function HomePage() {
               yang scalable, performant, dan mudah dimaintain.
             </p>
           </motion.div>
-
-          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-            {techStack.map((tech, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                whileHover={{ scale: 1.1 }}
-                className="glass rounded-xl p-6 flex flex-col items-center justify-center gap-3 cursor-pointer hover:border-purple-500/50 transition-all"
-              >
-                <tech.icon className="text-4xl" style={{ color: tech.color }} />
-                <span className="text-sm text-gray-400">{tech.name}</span>
-              </motion.div>
-            ))}
+          <div
+            style={{
+              height: "200px",
+              position: "relative",
+              overflow: "hidden",
+            }}
+          >
+            {/* Basic horizontal loop */}
+            <LogoLoop
+              logos={techLogos}
+              speed={100}
+              direction="left"
+              logoHeight={60}
+              gap={60}
+              hoverSpeed={0}
+              scaleOnHover
+              fadeOut
+              fadeOutColor="#ffffff"
+              ariaLabel="Technology partners"
+            />
           </div>
         </div>
       </section>
