@@ -2,10 +2,11 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import Logo from "@/components/Logo";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
+import GooeyNav from "@/components/component-react-bits/GooeyNav/GooeyNav";
 
 const navItems = [
   { label: "Beranda", href: "/" },
@@ -20,6 +21,13 @@ const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
+
+  // Get the active index based on current pathname
+  const getActiveIndex = () => {
+    const index = navItems.findIndex((item) => item.href === pathname);
+    return index >= 0 ? index : 0;
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,12 +37,16 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Handle GooeyNav navigation
+  const handleGooeyNavClick = (href: string) => {
+    router.push(href);
+  };
+
   return (
     <>
       <motion.header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "glass py-3" : "bg-transparent py-5"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "glass py-3" : "bg-transparent py-5"
+          }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
@@ -44,28 +56,20 @@ const Navbar: React.FC = () => {
             <Logo size="sm" />
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  pathname === item.href
-                    ? "text-white"
-                    : "text-gray-400 hover:text-white"
-                }`}
-              >
-                {pathname === item.href && (
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-purple-600/30 to-pink-600/30 rounded-full border border-purple-500/30"
-                    layoutId="navbar-active"
-                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                  />
-                )}
-                <span className="relative z-10">{item.label}</span>
-              </Link>
-            ))}
+          {/* Desktop Navigation with GooeyNav */}
+          <nav className="hidden md:flex items-center">
+            <GooeyNav
+              items={navItems}
+              particleCount={20}
+              particleDistances={[90, 10]}
+              particleR={100}
+              initialActiveIndex={getActiveIndex()}
+              animationTime={300}
+              timeVariance={300}
+              colors={[1, 2, 3, 1, 2, 3, 1, 4]}
+              navigationDelay={200}
+              onItemClick={(href) => router.push(href)}
+            />
           </nav>
 
           {/* CTA Button */}
@@ -117,11 +121,10 @@ const Navbar: React.FC = () => {
                   <Link
                     href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`block py-3 px-4 rounded-lg text-lg font-medium transition-colors ${
-                      pathname === item.href
-                        ? "text-white bg-purple-600/20"
-                        : "text-gray-400 hover:text-white hover:bg-white/5"
-                    }`}
+                    className={`block py-3 px-4 rounded-lg text-lg font-medium transition-colors ${pathname === item.href
+                      ? "text-white bg-purple-600/20"
+                      : "text-gray-400 hover:text-white hover:bg-white/5"
+                      }`}
                   >
                     {item.label}
                   </Link>

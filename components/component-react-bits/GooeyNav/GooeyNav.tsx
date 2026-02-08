@@ -14,6 +14,8 @@ export interface GooeyNavProps {
   timeVariance?: number;
   colors?: number[];
   initialActiveIndex?: number;
+  onItemClick?: (href: string, index: number) => void;
+  navigationDelay?: number;
 }
 
 const GooeyNav: React.FC<GooeyNavProps> = ({
@@ -24,7 +26,9 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
   particleR = 100,
   timeVariance = 300,
   colors = [1, 2, 3, 1, 2, 3, 1, 4],
-  initialActiveIndex = 0
+  initialActiveIndex = 0,
+  onItemClick,
+  navigationDelay = 500
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLUListElement>(null);
@@ -78,7 +82,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
         setTimeout(() => {
           try {
             element.removeChild(particle);
-          } catch {}
+          } catch { }
         }, t);
       }, 30);
     }
@@ -97,7 +101,8 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
     Object.assign(textRef.current.style, styles);
     textRef.current.innerText = element.innerText;
   };
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, index: number) => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, index: number, href: string) => {
+    e.preventDefault();
     const liEl = e.currentTarget;
     if (activeIndex === index) return;
     setActiveIndex(index);
@@ -114,8 +119,14 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
     if (filterRef.current) {
       makeParticles(filterRef.current);
     }
+    // Delay navigation so user can see the animation
+    if (onItemClick) {
+      setTimeout(() => {
+        onItemClick(href, index);
+      }, navigationDelay);
+    }
   };
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLAnchorElement>, index: number) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLAnchorElement>, index: number, href: string) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       const liEl = e.currentTarget.parentElement;
@@ -124,7 +135,8 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
           {
             currentTarget: liEl
           } as React.MouseEvent<HTMLAnchorElement>,
-          index
+          index,
+          href
         );
       }
     }
@@ -167,24 +179,25 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             transition: color 0.3s ease;
           }
           .effect.text.active {
-            color: black;
+            color: white;
           }
           .effect.filter {
-            filter: blur(7px) contrast(100) blur(0);
-            mix-blend-mode: lighten;
+            filter: blur(7px) contrast(10) blur(0);
+            mix-blend-mode: normal;
           }
           .effect.filter::before {
             content: "";
             position: absolute;
             inset: -75px;
             z-index: -2;
-            background: black;
+            background: transparent;
           }
           .effect.filter::after {
             content: "";
             position: absolute;
             inset: 0;
-            background: white;
+            background: linear-gradient(to right, rgba(147, 51, 234, 0.3), rgba(236, 72, 153, 0.3));
+            border: 1px solid rgba(147, 51, 234, 0.3);
             transform: scale(0);
             opacity: 0;
             z-index: -1;
@@ -267,8 +280,8 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             }
           }
           li.active {
-            color: black;
-            text-shadow: none;
+            color: white;
+            text-shadow: 0 0 10px rgba(147, 51, 234, 0.5);
           }
           li.active::after {
             opacity: 1;
@@ -278,8 +291,9 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             content: "";
             position: absolute;
             inset: 0;
-            border-radius: 8px;
-            background: white;
+            border-radius: 9999px;
+            background: linear-gradient(to right, rgba(147, 51, 234, 0.3), rgba(236, 72, 153, 0.3));
+            border: 1px solid rgba(147, 51, 234, 0.3);
             opacity: 0;
             transform: scale(0);
             transition: all 0.3s ease;
@@ -300,14 +314,13 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             {items.map((item, index) => (
               <li
                 key={index}
-                className={`rounded-full relative cursor-pointer transition-[background-color_color_box-shadow] duration-300 ease shadow-[0_0_0.5px_1.5px_transparent] text-white ${
-                  activeIndex === index ? 'active' : ''
-                }`}
+                className={`rounded-full relative cursor-pointer transition-[background-color_color_box-shadow] duration-300 ease shadow-[0_0_0.5px_1.5px_transparent] text-white ${activeIndex === index ? 'active' : ''
+                  }`}
               >
                 <a
                   href={item.href}
-                  onClick={e => handleClick(e, index)}
-                  onKeyDown={e => handleKeyDown(e, index)}
+                  onClick={e => handleClick(e, index, item.href)}
+                  onKeyDown={e => handleKeyDown(e, index, item.href)}
                   className="outline-none py-[0.6em] px-[1em] inline-block"
                 >
                   {item.label}

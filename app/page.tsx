@@ -34,6 +34,7 @@ import Footer from "@/components/view/Footer";
 import SpotlightCard from "@/components/component-react-bits/SpotlightCard/SpotlightCard";
 import GlitchText from "@/components/features/TextAnimations/GlitchText/GlitchText";
 import LogoLoop from "@/components/features/Animations/LogoLoop/LogoLoop";
+import TextType from "@/components/features/TextAnimations/TextType/TextType";
 
 // Dynamic imports for heavy components
 const FloatingLines = dynamic(
@@ -87,21 +88,6 @@ const services = [
   },
 ];
 
-// Tech stack
-const techStack = [
-  { icon: SiReact, name: "React", color: "#61DAFB" },
-  { icon: SiNextdotjs, name: "Next.js", color: "#FFFFFF" },
-  { icon: SiTypescript, name: "TypeScript", color: "#3178C6" },
-  { icon: SiNodedotjs, name: "Node.js", color: "#339933" },
-  { icon: SiTailwindcss, name: "Tailwind", color: "#06B6D4" },
-  { icon: SiMongodb, name: "MongoDB", color: "#47A248" },
-  { icon: SiPostgresql, name: "PostgreSQL", color: "#4169E1" },
-  { icon: SiDocker, name: "Docker", color: "#2496ED" },
-  { icon: SiAmazon, name: "AWS", color: "#FF9900" },
-  { icon: SiFlutter, name: "Flutter", color: "#02569B" },
-  { icon: SiFirebase, name: "Firebase", color: "#FFCA28" },
-  { icon: SiFigma, name: "Figma", color: "#F24E1E" },
-];
 
 const techLogos = [
   {
@@ -292,16 +278,34 @@ export default function HomePage() {
             </h1>
           </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
+          {/* Marketing Typing Animation */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10"
+            className="mb-10"
           >
-            Kami adalah partner teknologi terpercaya untuk mengembangkan
-            website, aplikasi mobile, dan sistem digital yang inovatif untuk
-            bisnis Anda.
-          </motion.p>
+            <TextType
+              text={[
+                " Transformasi Digital Bisnis Anda Dimulai Di Sini!",
+                " Solusi Teknologi Inovatif untuk Kesuksesan Anda",
+                " Website Modern & Aplikasi Mobile Berkualitas Tinggi",
+                " Partner Terpercaya untuk Pertumbuhan Bisnis Digital",
+                " Wujudkan Visi Digital Anda Bersama Kami!"
+              ]}
+              typingSpeed={60}
+              pauseDuration={2500}
+              showCursor
+              cursorCharacter="|"
+              deletingSpeed={35}
+              loop={true}
+              cursorBlinkDuration={0.6}
+              className="text-lg md:text-xl lg:text-2xl font-medium"
+              textColors={["#67E8F9"]}
+            />
+          </motion.div>
+
+
 
           {/* CTA Buttons */}
           <motion.div
@@ -542,7 +546,7 @@ export default function HomePage() {
                     enableShadows={true}
                     enableOnHover={true}
                   >
-                    AXOONE
+                    AxO INDO
                   </GlitchText>
                   <p className="text-gray-400 mb-8">
                     Bergabunglah dengan 50+ perusahaan yang telah mempercayakan
