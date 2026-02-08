@@ -283,10 +283,11 @@ export default function ServicesPage() {
                 className="cursor-pointer"
               >
                 <SpotlightCard
-                  className={`h-full transition-all ${selectedService.id === service.id
-                    ? "border-purple-500/50 ring-2 ring-purple-500/20"
-                    : "hover:border-purple-500/30"
-                    }`}
+                  className={`h-full transition-all ${
+                    selectedService.id === service.id
+                      ? "border-purple-500/50 ring-2 ring-purple-500/20"
+                      : "hover:border-purple-500/30"
+                  }`}
                   spotlightColor="rgba(139, 92, 246, 0.15)"
                 >
                   <div
@@ -473,10 +474,6 @@ export default function ServicesPage() {
             </p>
           </motion.div>
 
-
-
-
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {pricingPlans.map((plan, index) => (
               <motion.div
@@ -496,7 +493,7 @@ export default function ServicesPage() {
                   color="#7df9ff"
                   speed={1}
                   chaos={0.12}
-                  thickness={2}
+                  // thickness={2}
                   style={{ borderRadius: 16 }}
                 >
                   <SpotlightCard
@@ -511,7 +508,9 @@ export default function ServicesPage() {
                       <h3 className="text-2xl font-bold text-white mb-2">
                         {plan.name}
                       </h3>
-                      <p className="text-gray-400 text-sm">{plan.description}</p>
+                      <p className="text-gray-400 text-sm">
+                        {plan.description}
+                      </p>
                     </div>
                     <div className="text-center mb-8">
                       <div className="text-3xl font-bold gradient-text">
@@ -524,22 +523,24 @@ export default function ServicesPage() {
                           <div className="w-5 h-5 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center flex-shrink-0">
                             <HiCheck className="text-white text-xs" />
                           </div>
-                          <span className="text-gray-300 text-sm">{feature}</span>
+                          <span className="text-gray-300 text-sm">
+                            {feature}
+                          </span>
                         </li>
                       ))}
                     </ul>
                     <Link
                       href="/contact"
-                      className={`block text-center py-3 rounded-full font-semibold transition-all ${plan.popular
-                        ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:opacity-90"
-                        : "border border-purple-500/30 text-white hover:bg-purple-600/10"
-                        }`}
+                      className={`block text-center py-3 rounded-full font-semibold transition-all ${
+                        plan.popular
+                          ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:opacity-90"
+                          : "border border-purple-500/30 text-white hover:bg-purple-600/10"
+                      }`}
                     >
                       Pilih Paket
                     </Link>
                   </SpotlightCard>
                 </ElectricBorder>
-
               </motion.div>
             ))}
           </div>
@@ -596,6 +597,6 @@ export default function ServicesPage() {
       </section>
 
       <Footer />
-    </main >
+    </main>
   );
 }
