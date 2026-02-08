@@ -83,7 +83,7 @@ const milestones = [
   {
     year: "2019",
     title: "Didirikan",
-    description: "AxoOneTechSolution lahir dengan visi transformasi digital.",
+    description: "AxoIndoTechSolusindo lahir dengan visi transformasi digital.",
   },
   {
     year: "2020",
@@ -136,7 +136,7 @@ export default function AboutPage() {
               <span className="gradient-text">Terpercaya Anda</span>
             </h1>
             <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-              AxoOneTechSolution adalah perusahaan pengembangan software yang
+              AxoIndoTechSolusindo adalah perusahaan pengembangan software yang
               berdedikasi untuk membantu bisnis bertransformasi melalui solusi
               digital inovatif.
             </p>
@@ -160,7 +160,7 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-gray-400">
                 <p>
-                  Didirikan pada tahun 2019, AxoOneTechSolution lahir dari
+                  Didirikan pada tahun 2019, AxoIndoTechSolusindo lahir dari
                   passion untuk menghadirkan solusi teknologi yang tidak hanya
                   canggih, tetapi juga berdampak nyata bagi bisnis klien kami.
                 </p>
@@ -189,7 +189,7 @@ export default function AboutPage() {
               <div className="relative rounded-2xl overflow-hidden">
                 <img
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop"
-                  alt="Tim AxoOneTechSolution"
+                  alt="Tim AxoIndoTechSolusindo"
                   className="w-full h-auto"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />

@@ -212,7 +212,7 @@ const testimonials = [
     name: "Ahmad Rizky",
     role: "CEO, TechStart Indonesia",
     content:
-      "AxoOneTechSolution membantu kami membangun platform e-commerce yang luar biasa. Tim yang profesional dan hasil yang memuaskan!",
+      "AxoIndoTechSolusindo membantu kami membangun platform e-commerce yang luar biasa. Tim yang profesional dan hasil yang memuaskan!",
     avatar:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
   },

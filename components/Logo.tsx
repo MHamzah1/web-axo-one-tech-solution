@@ -163,7 +163,7 @@ const Logo: React.FC<LogoProps> = ({
           <span
             className={`${text} font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent`}
           >
-            AxoOne
+            AxoIndo
           </span>
           <span className="text-xs font-medium text-gray-400 tracking-wider uppercase">
             Tech Solution

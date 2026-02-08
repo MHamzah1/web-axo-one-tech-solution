@@ -68,11 +68,11 @@ const Footer: React.FC = () => {
             {/* Contact Info */}
             <div className="space-y-3">
               <a
-                href="mailto:hello@axoonetechsolution.com"
+                href="mailto:hello@axoindotechsolusindo.com"
                 className="flex items-center gap-3 text-gray-400 hover:text-purple-400 transition-colors"
               >
                 <FaEnvelope className="text-purple-500" />
-                hello@axoonetechsolution.com
+                hello@axoindotechsolusindo.com
               </a>
               <a
                 href="tel:+6281574865632"
@@ -174,7 +174,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-purple-500/10">
           {/* Copyright */}
           <p className="text-gray-500 text-sm text-center md:text-left">
-            © {currentYear} AxoOneTechSolution. All rights reserved.
+            © {currentYear} AxoIndoTechSolusindo. All rights reserved.
           </p>
 
           {/* Social Links */}

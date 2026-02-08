@@ -21,8 +21,8 @@ const contactInfo = [
   {
     icon: HiMail,
     title: "Email",
-    value: "hello@axoonetechsolution.com",
-    link: "mailto:hello@axoonetechsolution.com",
+    value: "hello@axoindotechsolusindo.com",
+    link: "mailto:hello@axoindotechsolusindo.com",
     color: "from-purple-500 to-violet-600",
   },
   {
@@ -411,11 +411,10 @@ export default function ContactPage() {
                 <motion.button
                   type="submit"
                   disabled={isSubmitting || isSubmitted}
-                  className={`w-full py-4 rounded-lg font-semibold text-white transition-all flex items-center justify-center gap-2 ${
-                    isSubmitted
+                  className={`w-full py-4 rounded-lg font-semibold text-white transition-all flex items-center justify-center gap-2 ${isSubmitted
                       ? "bg-green-600"
                       : "bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 glow-hover"
-                  }`}
+                    }`}
                   whileHover={{ scale: isSubmitting || isSubmitted ? 1 : 1.01 }}
                   whileTap={{ scale: isSubmitting || isSubmitted ? 1 : 0.99 }}
                 >
