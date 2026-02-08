@@ -30,6 +30,9 @@ export const metadata: Metadata = {
     description: "Wujudkan ide digitalmu bersama AxoIndoTechSolution",
     type: "website",
   },
+  icons: {
+    icon: "/logo/logo-axo.png",
+  },
 };
 
 export default function RootLayout({
