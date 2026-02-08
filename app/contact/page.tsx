@@ -21,8 +21,8 @@ const contactInfo = [
   {
     icon: HiMail,
     title: "Email",
-    value: "hello@axoindotechsolusindo.com",
-    link: "mailto:hello@axoindotechsolusindo.com",
+    value: "hello@axoindotechsolution.com",
+    link: "mailto:hello@axoindotechsolution.com",
     color: "from-purple-500 to-violet-600",
   },
   {
@@ -35,8 +35,8 @@ const contactInfo = [
   {
     icon: HiLocationMarker,
     title: "Alamat",
-    value: "Jakarta, Indonesia",
-    link: "https://maps.google.com",
+    value: "Bekasi, Jawa Barat, Indonesia",
+    link: "https://www.google.com/maps?q=-6.2365131,107.0694957&z=17&hl=en",
     color: "from-cyan-500 to-blue-600",
   },
   {
@@ -124,12 +124,27 @@ export default function ContactPage() {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    const message = `Halo AxoIndoTechSolution, saya ingin berkonsultasi.
+
+Berikut detail saya:
+Nama: ${formData.name}
+Email: ${formData.email}
+No. Telepon: ${formData.phone}
+Perusahaan: ${formData.company}
+Layanan: ${formData.service}
+Budget: ${formData.budget}
+
+Detail Proyek:
+${formData.message}`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/6281574865632?text=${encodedMessage}`;
+
+    window.open(whatsappUrl, "_blank");
 
     setIsSubmitting(false);
     setIsSubmitted(true);
@@ -412,8 +427,8 @@ export default function ContactPage() {
                   type="submit"
                   disabled={isSubmitting || isSubmitted}
                   className={`w-full py-4 rounded-lg font-semibold text-white transition-all flex items-center justify-center gap-2 ${isSubmitted
-                      ? "bg-green-600"
-                      : "bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 glow-hover"
+                    ? "bg-green-600"
+                    : "bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 glow-hover"
                     }`}
                   whileHover={{ scale: isSubmitting || isSubmitted ? 1 : 1.01 }}
                   whileTap={{ scale: isSubmitting || isSubmitted ? 1 : 0.99 }}
@@ -473,7 +488,7 @@ export default function ContactPage() {
                 </p>
                 <div className="space-y-4">
                   <a
-                    href="https://wa.me/6281574865632"
+                    href="https://wa.me/6281574865632?text=Halo%20AxoIndoTechSolution!%20Saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20proyek%20digital%20saya.%20Bisa%20dibantu%3F"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-4 p-4 rounded-xl bg-green-600/10 border border-green-600/20 hover:border-green-600/50 transition-colors group"
@@ -530,28 +545,36 @@ export default function ContactPage() {
               </div>
 
               {/* Map placeholder */}
-              <div className="glass rounded-2xl overflow-hidden">
+              <a
+                href="https://www.google.com/maps?q=-6.2365131,107.0694957&z=17&hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block glass rounded-2xl overflow-hidden group relative"
+              >
                 <div className="aspect-[4/3] bg-neutral-800 relative">
                   <img
                     src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&h=600&fit=crop"
                     alt="Map location"
-                    className="w-full h-full object-cover opacity-50"
+                    className="w-full h-full object-cover opacity-50 transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center mx-auto mb-4">
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                         <HiLocationMarker className="text-white text-2xl" />
                       </div>
                       <p className="text-white font-semibold">
-                        Jakarta, Indonesia
+                        Bekasi, Jawa Barat, Indonesia
                       </p>
-                      <p className="text-gray-400 text-sm">
+                      <p className="text-gray-400 text-sm mb-4">
                         Remote-First Company
                       </p>
+                      <span className="text-purple-400 text-sm font-medium hover:underline">
+                        Buka di Google Maps
+                      </span>
                     </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </motion.div>
           </div>
         </div>

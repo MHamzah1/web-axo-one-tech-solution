@@ -205,11 +205,10 @@ export default function PortfolioPage() {
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-5 py-2.5 rounded-full font-medium transition-all ${
-                  activeCategory === category
+                className={`px-5 py-2.5 rounded-full font-medium transition-all ${activeCategory === category
                     ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
                     : "glass text-gray-400 hover:text-white"
-                }`}
+                  }`}
               >
                 {category}
               </button>
@@ -347,13 +346,13 @@ export default function PortfolioPage() {
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <a
+                  {/* <a
                     href={selectedProject.link}
                     className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-semibold text-white hover:opacity-90 transition-all"
                   >
                     Lihat Website
                     <HiExternalLink />
-                  </a>
+                  </a> */}
                   <Link
                     href="/contact"
                     className="inline-flex items-center gap-2 px-6 py-3 border border-purple-500/30 rounded-full font-semibold text-white hover:bg-purple-600/10 transition-all"

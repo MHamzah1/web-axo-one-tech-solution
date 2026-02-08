@@ -18,6 +18,7 @@ import {
 import Navbar from "@/components/view/Navbar";
 import Footer from "@/components/view/Footer";
 import SpotlightCard from "@/components/component-react-bits/SpotlightCard/SpotlightCard";
+import ElectricBorder from "@/components/features/Animations/ElectricBorder/ElectricBorder";
 
 // All services
 const services = [
@@ -195,12 +196,11 @@ const pricingPlans = [
   {
     name: "Starter",
     description: "Cocok untuk startup dan UMKM",
-    price: "Mulai 5 Juta",
+    price: "Mulai 2 Juta",
     features: [
       "Landing Page / Company Profile",
       "Responsive Design",
       "Basic SEO Setup",
-      "3 Halaman",
       "1 Bulan Support",
       "Hosting 1 Tahun",
     ],
@@ -209,12 +209,11 @@ const pricingPlans = [
   {
     name: "Professional",
     description: "Untuk bisnis yang berkembang",
-    price: "Mulai 15 Juta",
+    price: "Mulai 7 Juta",
     features: [
       "Website Dinamis + CMS",
       "Custom UI/UX Design",
       "Advanced SEO",
-      "10+ Halaman",
       "3 Bulan Support",
       "Analytics Dashboard",
     ],
@@ -228,7 +227,6 @@ const pricingPlans = [
       "Custom Web Application",
       "Mobile App Development",
       "API Integration",
-      "Unlimited Pages",
       "12 Bulan Support",
       "Priority Response",
     ],
@@ -285,11 +283,10 @@ export default function ServicesPage() {
                 className="cursor-pointer"
               >
                 <SpotlightCard
-                  className={`h-full transition-all ${
-                    selectedService.id === service.id
-                      ? "border-purple-500/50 ring-2 ring-purple-500/20"
-                      : "hover:border-purple-500/30"
-                  }`}
+                  className={`h-full transition-all ${selectedService.id === service.id
+                    ? "border-purple-500/50 ring-2 ring-purple-500/20"
+                    : "hover:border-purple-500/30"
+                    }`}
                   spotlightColor="rgba(139, 92, 246, 0.15)"
                 >
                   <div
@@ -476,6 +473,10 @@ export default function ServicesPage() {
             </p>
           </motion.div>
 
+
+
+
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {pricingPlans.map((plan, index) => (
               <motion.div
@@ -491,46 +492,54 @@ export default function ServicesPage() {
                     Populer
                   </div>
                 )}
-                <SpotlightCard
-                  className={`h-full ${plan.popular ? "border-purple-500/50" : ""}`}
-                  spotlightColor={
-                    plan.popular
-                      ? "rgba(236, 72, 153, 0.15)"
-                      : "rgba(139, 92, 246, 0.15)"
-                  }
+                <ElectricBorder
+                  color="#7df9ff"
+                  speed={1}
+                  chaos={0.12}
+                  thickness={2}
+                  style={{ borderRadius: 16 }}
                 >
-                  <div className="text-center mb-6">
-                    <h3 className="text-2xl font-bold text-white mb-2">
-                      {plan.name}
-                    </h3>
-                    <p className="text-gray-400 text-sm">{plan.description}</p>
-                  </div>
-                  <div className="text-center mb-8">
-                    <div className="text-3xl font-bold gradient-text">
-                      {plan.price}
-                    </div>
-                  </div>
-                  <ul className="space-y-3 mb-8">
-                    {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-center gap-3">
-                        <div className="w-5 h-5 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center flex-shrink-0">
-                          <HiCheck className="text-white text-xs" />
-                        </div>
-                        <span className="text-gray-300 text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href="/contact"
-                    className={`block text-center py-3 rounded-full font-semibold transition-all ${
+                  <SpotlightCard
+                    className={`h-full ${plan.popular ? "border-purple-500/50" : ""}`}
+                    spotlightColor={
                       plan.popular
+                        ? "rgba(236, 72, 153, 0.15)"
+                        : "rgba(139, 92, 246, 0.15)"
+                    }
+                  >
+                    <div className="text-center mb-6">
+                      <h3 className="text-2xl font-bold text-white mb-2">
+                        {plan.name}
+                      </h3>
+                      <p className="text-gray-400 text-sm">{plan.description}</p>
+                    </div>
+                    <div className="text-center mb-8">
+                      <div className="text-3xl font-bold gradient-text">
+                        {plan.price}
+                      </div>
+                    </div>
+                    <ul className="space-y-3 mb-8">
+                      {plan.features.map((feature, i) => (
+                        <li key={i} className="flex items-center gap-3">
+                          <div className="w-5 h-5 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center flex-shrink-0">
+                            <HiCheck className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-300 text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Link
+                      href="/contact"
+                      className={`block text-center py-3 rounded-full font-semibold transition-all ${plan.popular
                         ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:opacity-90"
                         : "border border-purple-500/30 text-white hover:bg-purple-600/10"
-                    }`}
-                  >
-                    Pilih Paket
-                  </Link>
-                </SpotlightCard>
+                        }`}
+                    >
+                      Pilih Paket
+                    </Link>
+                  </SpotlightCard>
+                </ElectricBorder>
+
               </motion.div>
             ))}
           </div>
@@ -574,7 +583,7 @@ export default function ServicesPage() {
                 <HiArrowRight />
               </Link>
               <a
-                href="https://wa.me/6281574865632"
+                href="https://wa.me/6281574865632?text=Halo%20AxoIndoTechSolution!%20Saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20proyek%20digital%20saya.%20Bisa%20dibantu%3F"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 border border-purple-500/30 rounded-full font-semibold text-white hover:bg-purple-600/10 transition-all"
@@ -587,6 +596,6 @@ export default function ServicesPage() {
       </section>
 
       <Footer />
-    </main>
+    </main >
   );
 }

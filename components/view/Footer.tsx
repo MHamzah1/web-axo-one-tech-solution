@@ -68,11 +68,11 @@ const Footer: React.FC = () => {
             {/* Contact Info */}
             <div className="space-y-3">
               <a
-                href="mailto:hello@axoindotechsolusindo.com"
+                href="mailto:hello@axoindotechsolution.com"
                 className="flex items-center gap-3 text-gray-400 hover:text-purple-400 transition-colors"
               >
                 <FaEnvelope className="text-purple-500" />
-                hello@axoindotechsolusindo.com
+                hello@axoindotechsolution.com
               </a>
               <a
                 href="tel:+6281574865632"
@@ -83,7 +83,7 @@ const Footer: React.FC = () => {
               </a>
               <div className="flex items-start gap-3 text-gray-400">
                 <FaMapMarkerAlt className="text-purple-500 mt-1" />
-                <span>Jakarta, Indonesia</span>
+                <span>Bekasi, Jawa Barat, Indonesia</span>
               </div>
             </div>
           </div>
@@ -174,7 +174,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-purple-500/10">
           {/* Copyright */}
           <p className="text-gray-500 text-sm text-center md:text-left">
-            © {currentYear} AxoIndoTechSolusindo. All rights reserved.
+            © {currentYear} axoindotechsolution. All rights reserved.
           </p>
 
           {/* Social Links */}

@@ -13,7 +13,7 @@ const navItems = [
   { label: "Tentang", href: "/about" },
   { label: "Layanan", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
-  { label: "Blog", href: "/blog" },
+  // { label: "Blog", href: "/blog" },
   { label: "Kontak", href: "/contact" },
 ];
 

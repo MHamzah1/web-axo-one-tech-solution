@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AxoIndoTechSolusindo - Solusi Digital Terdepan",
+  title: "AxoIndoTechSolution - Solusi Digital Terdepan",
   description:
-    "AxoIndoTechSolusindo adalah perusahaan teknologi yang bergerak di bidang pengembangan website, aplikasi mobile, dan sistem digital terintegrasi. Wujudkan ide digitalmu bersama kami.",
+    "AxoIndoTechSolution adalah perusahaan teknologi yang bergerak di bidang pengembangan website, aplikasi mobile, dan sistem digital terintegrasi. Wujudkan ide digitalmu bersama kami.",
   keywords: [
     "web development",
     "aplikasi mobile",
@@ -24,10 +24,10 @@ export const metadata: Metadata = {
     "tech solution",
     "Indonesia",
   ],
-  authors: [{ name: "AxoIndoTechSolusindo" }],
+  authors: [{ name: "AxoIndoTechSolution" }],
   openGraph: {
-    title: "AxoIndoTechSolusindo - Solusi Digital Terdepan",
-    description: "Wujudkan ide digitalmu bersama AxoIndoTechSolusindo",
+    title: "AxoIndoTechSolution - Solusi Digital Terdepan",
+    description: "Wujudkan ide digitalmu bersama AxoIndoTechSolution",
     type: "website",
   },
 };
