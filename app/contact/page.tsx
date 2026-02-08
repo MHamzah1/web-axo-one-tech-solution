@@ -42,7 +42,7 @@ const contactInfo = [
   {
     icon: HiClock,
     title: "Jam Operasional",
-    value: "Senin - Jumat, 09:00 - 18:00",
+    value: "Sabtu - Minggu, 09:00 - 18:00",
     link: null,
     color: "from-orange-500 to-amber-600",
   },
