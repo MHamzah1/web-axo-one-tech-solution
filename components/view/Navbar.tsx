@@ -25,7 +25,12 @@ const Navbar: React.FC = () => {
 
   // Get the active index based on current pathname
   const getActiveIndex = () => {
-    const index = navItems.findIndex((item) => item.href === pathname);
+    // Normalize paths for comparison (handle trailing slashes)
+    const normalizedPathname = pathname === '/' ? '/' : pathname.replace(/\/$/, '');
+    const index = navItems.findIndex((item) => {
+      const normalizedHref = item.href === '/' ? '/' : item.href.replace(/\/$/, '');
+      return normalizedHref === normalizedPathname;
+    });
     return index >= 0 ? index : 0;
   };
 
@@ -121,7 +126,8 @@ const Navbar: React.FC = () => {
                   <Link
                     href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`block py-3 px-4 rounded-lg text-lg font-medium transition-colors ${pathname === item.href
+                    className={`block py-3 px-4 rounded-lg text-lg font-medium transition-colors ${
+                      (pathname === item.href || pathname === item.href + '/' || (item.href !== '/' && pathname === item.href.replace(/\/$/, '')))
                       ? "text-white bg-purple-600/20"
                       : "text-gray-400 hover:text-white hover:bg-white/5"
                       }`}

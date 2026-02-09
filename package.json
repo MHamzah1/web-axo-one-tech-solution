@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:hostinger": "next build && powershell Compress-Archive -Path ./out/* -DestinationPath ./hostinger-build.zip -Force",
     "start": "next start",
     "lint": "eslint"
   },
