@@ -1,0 +1,16 @@
+# robots.txt untuk AxoIndoTechSolution
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://axoindotechsolution.com/sitemap.xml
+
+# Disallow admin dan private pages (jika ada)
+Disallow: /admin/
+Disallow: /api/
+
+# Allow all static assets
+Allow: /_next/static/
+Allow: /_next/image/
+Allow: /logo/
