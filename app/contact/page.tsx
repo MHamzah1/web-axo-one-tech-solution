@@ -36,7 +36,7 @@ const contactInfo = [
     icon: HiLocationMarker,
     title: "Alamat",
     value: "Bekasi, Jawa Barat, Indonesia",
-    link: "https://www.google.com/maps?q=-6.2365131,107.0694957&z=17&hl=en",
+    link: "https://maps.app.goo.gl/afm2c5TvJPHNyVy87",
     color: "from-cyan-500 to-blue-600",
   },
   {
@@ -546,7 +546,7 @@ ${formData.message}`;
 
               {/* Map placeholder */}
               <a
-                href="https://www.google.com/maps?q=-6.2365131,107.0694957&z=17&hl=en"
+                href="https://maps.app.goo.gl/afm2c5TvJPHNyVy87"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block glass rounded-2xl overflow-hidden group relative"
