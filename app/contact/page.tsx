@@ -21,15 +21,15 @@ const contactInfo = [
   {
     icon: HiMail,
     title: "Email",
-    value: "hello@axoindotechsolution.com",
-    link: "mailto:hello@axoindotechsolution.com",
+    value: "axoindotechsolution@gmail.com",
+    link: "mailto:axoindotechsolution@gmail.com",
     color: "from-purple-500 to-violet-600",
   },
   {
     icon: HiPhone,
     title: "Telepon",
-    value: "+62 815 7486 5632",
-    link: "tel:+6281574865632",
+    value: "+62 895 3188 7799",
+    link: "tel:+6289531887799",
     color: "from-pink-500 to-rose-600",
   },
   {
@@ -142,7 +142,7 @@ Detail Proyek:
 ${formData.message}`;
 
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/6281574865632?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/6289531887799?text=${encodedMessage}`;
 
     window.open(whatsappUrl, "_blank");
 
@@ -488,7 +488,7 @@ ${formData.message}`;
                 </p>
                 <div className="space-y-4">
                   <a
-                    href="https://wa.me/6281574865632?text=Halo%20AxoIndoTechSolution!%20Saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20proyek%20digital%20saya.%20Bisa%20dibantu%3F"
+                    href="https://wa.me/6289531887799?text=Halo%20AxoIndoTechSolution!%20Saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20proyek%20digital%20saya.%20Bisa%20dibantu%3F"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-4 p-4 rounded-xl bg-green-600/10 border border-green-600/20 hover:border-green-600/50 transition-colors group"

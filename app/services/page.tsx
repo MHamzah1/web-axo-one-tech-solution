@@ -283,11 +283,10 @@ export default function ServicesPage() {
                 className="cursor-pointer"
               >
                 <SpotlightCard
-                  className={`h-full transition-all ${
-                    selectedService.id === service.id
+                  className={`h-full transition-all ${selectedService.id === service.id
                       ? "border-purple-500/50 ring-2 ring-purple-500/20"
                       : "hover:border-purple-500/30"
-                  }`}
+                    }`}
                   spotlightColor="rgba(139, 92, 246, 0.15)"
                 >
                   <div
@@ -531,11 +530,10 @@ export default function ServicesPage() {
                     </ul>
                     <Link
                       href="/contact"
-                      className={`block text-center py-3 rounded-full font-semibold transition-all ${
-                        plan.popular
+                      className={`block text-center py-3 rounded-full font-semibold transition-all ${plan.popular
                           ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:opacity-90"
                           : "border border-purple-500/30 text-white hover:bg-purple-600/10"
-                      }`}
+                        }`}
                     >
                       Pilih Paket
                     </Link>
@@ -584,7 +582,7 @@ export default function ServicesPage() {
                 <HiArrowRight />
               </Link>
               <a
-                href="https://wa.me/6281574865632?text=Halo%20AxoIndoTechSolution!%20Saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20proyek%20digital%20saya.%20Bisa%20dibantu%3F"
+                href="https://wa.me/6289531887799?text=Halo%20AxoIndoTechSolution!%20Saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20proyek%20digital%20saya.%20Bisa%20dibantu%3F"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 border border-purple-500/30 rounded-full font-semibold text-white hover:bg-purple-600/10 transition-all"

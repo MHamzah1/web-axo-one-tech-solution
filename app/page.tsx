@@ -721,7 +721,7 @@ export default function HomePage() {
                 <HiArrowRight />
               </Link>
               <a
-                href="https://wa.me/6281574865632?text=Halo%20AxoIndoTechSolution!%20Saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20proyek%20digital%20saya.%20Bisa%20dibantu%3F"
+                href="https://wa.me/6289531887799?text=Halo%20AxoIndoTechSolution!%20Saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20proyek%20digital%20saya.%20Bisa%20dibantu%3F"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-4 border border-purple-500/30 rounded-full font-semibold text-white hover:bg-purple-600/10 transition-all flex items-center gap-2"

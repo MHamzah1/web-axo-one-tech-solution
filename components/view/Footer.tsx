@@ -13,7 +13,9 @@ import {
   FaEnvelope,
   FaPhone,
   FaMapMarkerAlt,
+  FaMailBulk,
 } from "react-icons/fa";
+import { FiMail } from "react-icons/fi";
 
 const footerLinks = {
   layanan: [
@@ -42,7 +44,7 @@ const socialLinks = [
   { icon: FaFacebookF, href: "https://facebook.com", label: "Facebook" },
   { icon: FaTwitter, href: "https://twitter.com", label: "Twitter" },
   { icon: FaInstagram, href: "https://instagram.com", label: "Instagram" },
-  { icon: FaLinkedinIn, href: "https://linkedin.com", label: "LinkedIn" },
+  { icon: FiMail, href: "https://gmail.com", label: "LinkedIn" },
   { icon: FaGithub, href: "https://github.com", label: "GitHub" },
 ];
 
@@ -68,18 +70,18 @@ const Footer: React.FC = () => {
             {/* Contact Info */}
             <div className="space-y-3">
               <a
-                href="mailto:hello@axoindotechsolution.com"
+                href="mailto:axoindotechsolution@gmail.com"
                 className="flex items-center gap-3 text-gray-400 hover:text-purple-400 transition-colors"
               >
                 <FaEnvelope className="text-purple-500" />
-                hello@axoindotechsolution.com
+                axoindotechsolution@gmail.com
               </a>
               <a
-                href="tel:+6281574865632"
+                href="tel:+6289531887799"
                 className="flex items-center gap-3 text-gray-400 hover:text-purple-400 transition-colors"
               >
                 <FaPhone className="text-purple-500" />
-                +62 815 7486 5632
+                +62 895 3188 7799
               </a>
               <div className="flex items-start gap-3 text-gray-400">
                 <FaMapMarkerAlt className="text-purple-500 mt-1" />
@@ -141,7 +143,7 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Newsletter Section */}
-        <div className="glass rounded-2xl p-8 mb-12">
+        {/* <div className="glass rounded-2xl p-8 mb-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
               <h3 className="text-xl font-semibold text-white mb-2">
@@ -168,7 +170,7 @@ const Footer: React.FC = () => {
               </motion.button>
             </form>
           </div>
-        </div>
+        </div> */}
 
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-purple-500/10">
