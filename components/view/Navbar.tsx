@@ -26,9 +26,11 @@ const Navbar: React.FC = () => {
   // Get the active index based on current pathname
   const getActiveIndex = () => {
     // Normalize paths for comparison (handle trailing slashes)
-    const normalizedPathname = pathname === '/' ? '/' : pathname.replace(/\/$/, '');
+    const normalizedPathname =
+      pathname === "/" ? "/" : pathname.replace(/\/$/, "");
     const index = navItems.findIndex((item) => {
-      const normalizedHref = item.href === '/' ? '/' : item.href.replace(/\/$/, '');
+      const normalizedHref =
+        item.href === "/" ? "/" : item.href.replace(/\/$/, "");
       return normalizedHref === normalizedPathname;
     });
     return index >= 0 ? index : 0;
@@ -50,8 +52,9 @@ const Navbar: React.FC = () => {
   return (
     <>
       <motion.header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "glass py-3" : "bg-transparent py-5"
-          }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled ? "glass py-3" : "bg-transparent py-5"
+        }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
@@ -127,10 +130,13 @@ const Navbar: React.FC = () => {
                     href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`block py-3 px-4 rounded-lg text-lg font-medium transition-colors ${
-                      (pathname === item.href || pathname === item.href + '/' || (item.href !== '/' && pathname === item.href.replace(/\/$/, '')))
-                      ? "text-white bg-purple-600/20"
-                      : "text-gray-400 hover:text-white hover:bg-white/5"
-                      }`}
+                      pathname === item.href ||
+                      pathname === item.href + "/" ||
+                      (item.href !== "/" &&
+                        pathname === item.href.replace(/\/$/, ""))
+                        ? "text-white bg-purple-600/20"
+                        : "text-gray-400 hover:text-white hover:bg-white/5"
+                    }`}
                   >
                     {item.label}
                   </Link>
