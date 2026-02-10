@@ -529,8 +529,10 @@ export default function ServicesPage() {
                         </li>
                       ))}
                     </ul>
-                    <Link
-                      href="/contact"
+                    <a
+                      href={`https://wa.me/6289531887799?text=${encodeURIComponent(`Halo AxoIndoSolution! Saya tertarik dengan paket *${plan.name}* (${plan.price}).\n\nFitur yang termasuk:\n${plan.features.map((f) => "• " + f).join("\n")}\n\nMohon informasi lebih lanjut. Terima kasih!`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className={`block text-center py-3 rounded-full font-semibold transition-all ${
                         plan.popular
                           ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:opacity-90"
@@ -538,7 +540,7 @@ export default function ServicesPage() {
                       }`}
                     >
                       Pilih Paket
-                    </Link>
+                    </a>
                   </SpotlightCard>
                 </ElectricBorder>
               </motion.div>
