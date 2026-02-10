@@ -1,4 +1,5 @@
-# robots.txt untuk AxoIndoTechSolution
+# robots.txt untuk AxoIndoSolution (AxoIndo, Axo Indo Solution)
+# Jasa Pembuatan Website & Aplikasi Profesional Indonesia
 
 User-agent: *
 Allow: /

@@ -17,33 +17,61 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://axoindotechsolution.com"),
   title: {
     default:
-      "AxoIndoTechSolution - Jasa Pembuatan Website & Aplikasi Profesional",
-    template: "%s | AxoIndoTechSolution",
+      "AxoIndoSolution | Jasa Pembuatan Website & Aplikasi Profesional Indonesia",
+    template: "%s | AxoIndoSolution - Jasa Digital Terpercaya",
   },
   description:
-    "AxoIndoTechSolution adalah perusahaan teknologi terpercaya di Indonesia yang bergerak di bidang pengembangan website, aplikasi mobile, cloud solutions, dan sistem digital terintegrasi. Wujudkan transformasi digital bisnis Anda bersama kami.",
+    "AxoIndoSolution (AxoIndo Solution, Axo Indo Solution) adalah perusahaan teknologi terpercaya di Indonesia. Jasa pembuatan website, aplikasi mobile, cloud solutions, dan sistem digital terintegrasi. Konsultasi GRATIS! Harga terjangkau, kualitas premium.",
   keywords: [
+    // Brand keywords - all variations
+    "AxoIndo",
+    "Axo Indo",
+    "axoindo",
+    "AxoIndoSolution",
+    "Axo Indo Solution",
+    "axoindosolution",
+    "AxoIndoTechSolution",
+    "Axo Indo Tech Solution",
+    "axoindotechsolution",
+    // Service keywords Indonesia
     "jasa pembuatan website",
+    "jasa pembuatan website murah",
+    "jasa pembuatan website profesional",
+    "jasa bikin website",
+    "jasa buat website",
     "jasa pembuatan aplikasi",
+    "jasa pembuatan aplikasi android",
+    "jasa pembuatan aplikasi ios",
+    "jasa pembuatan aplikasi mobile",
+    "jasa bikin aplikasi",
     "web development Indonesia",
-    "aplikasi mobile",
+    "web developer Indonesia",
+    "aplikasi mobile Indonesia",
     "software house Indonesia",
+    "software house Jakarta",
+    "software house Bekasi",
     "jasa website profesional",
     "jasa aplikasi android ios",
-    "cloud solutions",
-    "UI/UX design",
+    "cloud solutions Indonesia",
+    "UI/UX design Indonesia",
     "custom software development",
-    "digital transformation",
+    "digital transformation Indonesia",
     "tech solution Indonesia",
     "web developer Jakarta",
+    "web developer Bekasi",
     "company profile website",
     "e-commerce development",
+    "toko online",
+    "website UMKM",
+    "website perusahaan",
+    "landing page",
+    "website murah berkualitas",
   ],
   authors: [
-    { name: "AxoIndoTechSolution", url: "https://axoindotechsolution.com" },
+    { name: "AxoIndoSolution", url: "https://axoindotechsolution.com" },
   ],
-  creator: "AxoIndoTechSolution",
-  publisher: "AxoIndoTechSolution",
+  creator: "AxoIndoSolution",
+  publisher: "AxoIndoSolution",
   robots: {
     index: true,
     follow: true,
@@ -58,24 +86,25 @@ export const metadata: Metadata = {
     type: "website",
     locale: "id_ID",
     url: "https://axoindotechsolution.com",
-    siteName: "AxoIndoTechSolution",
+    siteName: "AxoIndoSolution",
     title:
-      "AxoIndoTechSolution - Jasa Pembuatan Website & Aplikasi Profesional",
+      "AxoIndoSolution | Jasa Pembuatan Website & Aplikasi Profesional Indonesia",
     description:
-      "Perusahaan teknologi terpercaya yang menghadirkan solusi digital end-to-end untuk transformasi bisnis Anda. Web Development, Mobile App, Cloud Solutions.",
+      "AxoIndoSolution - Jasa pembuatan website dan aplikasi profesional di Indonesia. Harga terjangkau, kualitas premium. Konsultasi GRATIS! Web Development, Mobile App, Cloud Solutions.",
     images: [
       {
         url: "/logo/logo-axo.png",
         width: 1200,
         height: 630,
-        alt: "AxoIndoTechSolution Logo",
+        alt: "AxoIndoSolution - Jasa Pembuatan Website dan Aplikasi Indonesia",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AxoIndoTechSolution - Jasa Pembuatan Website & Aplikasi",
-    description: "Solusi digital terpercaya untuk transformasi bisnis Anda",
+    title: "AxoIndoSolution | Jasa Pembuatan Website & Aplikasi Indonesia",
+    description:
+      "Jasa digital terpercaya untuk UMKM & perusahaan Indonesia. Website & Aplikasi berkualitas dengan harga terjangkau!",
     images: ["/logo/logo-axo.png"],
   },
   icons: {
@@ -99,15 +128,26 @@ export default function RootLayout({
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "AxoIndoTechSolution",
+    name: "AxoIndoSolution",
+    alternateName: [
+      "AxoIndo",
+      "Axo Indo Solution",
+      "AxoIndoTechSolution",
+      "Axo Indo Tech Solution",
+    ],
     url: "https://axoindotechsolution.com",
     logo: "https://axoindotechsolution.com/logo/logo-axo.png",
     description:
-      "Perusahaan teknologi terpercaya di Indonesia yang bergerak di bidang pengembangan website, aplikasi mobile, cloud solutions, dan sistem digital terintegrasi.",
+      "AxoIndoSolution adalah perusahaan teknologi terpercaya di Indonesia. Jasa pembuatan website profesional, aplikasi mobile, cloud solutions, dan sistem digital terintegrasi. Melayani UMKM hingga perusahaan besar di seluruh Indonesia.",
     address: {
       "@type": "PostalAddress",
       addressCountry: "ID",
-      addressLocality: "Indonesia",
+      addressLocality: "Bekasi",
+      addressRegion: "Jawa Barat",
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "Indonesia",
     },
     contactPoint: {
       "@type": "ContactPoint",
@@ -125,18 +165,27 @@ export default function RootLayout({
       itemOffered: [
         {
           "@type": "Service",
-          name: "Web Development",
-          description: "Jasa pembuatan website profesional dan modern",
+          name: "Jasa Pembuatan Website",
+          description:
+            "Jasa pembuatan website profesional, modern, dan SEO-friendly untuk UMKM dan perusahaan Indonesia",
         },
         {
           "@type": "Service",
-          name: "Mobile App Development",
-          description: "Jasa pembuatan aplikasi mobile iOS dan Android",
+          name: "Jasa Pembuatan Aplikasi Mobile",
+          description:
+            "Jasa pembuatan aplikasi mobile iOS dan Android berkualitas tinggi dengan harga terjangkau",
         },
         {
           "@type": "Service",
           name: "Cloud Solutions",
-          description: "Layanan cloud infrastructure dan deployment",
+          description:
+            "Layanan cloud infrastructure dan deployment untuk bisnis Indonesia",
+        },
+        {
+          "@type": "Service",
+          name: "UI/UX Design",
+          description:
+            "Jasa desain UI/UX profesional untuk website dan aplikasi mobile",
         },
       ],
     },

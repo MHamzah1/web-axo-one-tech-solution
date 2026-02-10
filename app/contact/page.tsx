@@ -128,7 +128,7 @@ export default function ContactPage() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const message = `Halo AxoIndoTechSolution, saya ingin berkonsultasi.
+    const message = `Halo AxoIndoSolution, saya ingin berkonsultasi.
 
 Berikut detail saya:
 Nama: ${formData.name}
@@ -426,10 +426,11 @@ ${formData.message}`;
                 <motion.button
                   type="submit"
                   disabled={isSubmitting || isSubmitted}
-                  className={`w-full py-4 rounded-lg font-semibold text-white transition-all flex items-center justify-center gap-2 ${isSubmitted
-                    ? "bg-green-600"
-                    : "bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 glow-hover"
-                    }`}
+                  className={`w-full py-4 rounded-lg font-semibold text-white transition-all flex items-center justify-center gap-2 ${
+                    isSubmitted
+                      ? "bg-green-600"
+                      : "bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 glow-hover"
+                  }`}
                   whileHover={{ scale: isSubmitting || isSubmitted ? 1 : 1.01 }}
                   whileTap={{ scale: isSubmitting || isSubmitted ? 1 : 0.99 }}
                 >
@@ -488,7 +489,7 @@ ${formData.message}`;
                 </p>
                 <div className="space-y-4">
                   <a
-                    href="https://wa.me/6289531887799?text=Halo%20AxoIndoTechSolution!%20Saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20proyek%20digital%20saya.%20Bisa%20dibantu%3F"
+                    href="https://wa.me/6289531887799?text=Halo%20AxoIndoSolution!%20Saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20proyek%20digital%20saya.%20Bisa%20dibantu%3F"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-4 p-4 rounded-xl bg-green-600/10 border border-green-600/20 hover:border-green-600/50 transition-colors group"

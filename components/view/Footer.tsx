@@ -176,7 +176,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-purple-500/10">
           {/* Copyright */}
           <p className="text-gray-500 text-sm text-center md:text-left">
-            © {currentYear} axoindotechsolution. All rights reserved.
+            © {currentYear} AxoIndoSolution. All rights reserved.
           </p>
 
           {/* Social Links */}

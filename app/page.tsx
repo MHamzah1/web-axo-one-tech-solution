@@ -88,7 +88,6 @@ const services = [
   },
 ];
 
-
 const techLogos = [
   {
     node: <SiReact />,
@@ -198,7 +197,7 @@ const testimonials = [
     name: "Ahmad Rizky",
     role: "CEO, TechStart Indonesia",
     content:
-      "AxoIndoTechSolution membantu kami membangun platform e-commerce yang luar biasa. Tim yang profesional dan hasil yang memuaskan!",
+      "AxoIndoSolution (AxoIndo) membantu kami membangun platform e-commerce yang luar biasa. Tim yang profesional dan hasil yang memuaskan! Sangat direkomendasikan untuk jasa pembuatan website di Indonesia.",
     avatar:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
   },
@@ -291,7 +290,7 @@ export default function HomePage() {
                 " Solusi Teknologi Inovatif untuk Kesuksesan Anda",
                 " Website Modern & Aplikasi Mobile Berkualitas Tinggi",
                 " Partner Terpercaya untuk Pertumbuhan Bisnis Digital",
-                " Wujudkan Visi Digital Anda Bersama Kami!"
+                " Wujudkan Visi Digital Anda Bersama Kami!",
               ]}
               typingSpeed={60}
               pauseDuration={2500}
@@ -304,8 +303,6 @@ export default function HomePage() {
               textColors={["#67E8F9"]}
             />
           </motion.div>
-
-
 
           {/* CTA Buttons */}
           <motion.div
@@ -546,11 +543,12 @@ export default function HomePage() {
                     enableShadows={true}
                     enableOnHover={true}
                   >
-                    AxO INDO
+                    AxoIndo Solution
                   </GlitchText>
                   <p className="text-gray-400 mb-8">
-                    Bergabunglah dengan 50+ perusahaan yang telah mempercayakan
-                    transformasi digital mereka kepada kami.
+                    Bergabunglah dengan 50+ perusahaan di Indonesia yang telah
+                    mempercayakan transformasi digital mereka kepada
+                    AxoIndoSolution.
                   </p>
                   <Link
                     href="/contact"
@@ -721,13 +719,107 @@ export default function HomePage() {
                 <HiArrowRight />
               </Link>
               <a
-                href="https://wa.me/6289531887799?text=Halo%20AxoIndoTechSolution!%20Saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20proyek%20digital%20saya.%20Bisa%20dibantu%3F"
+                href="https://wa.me/6289531887799?text=Halo%20AxoIndoSolution!%20Saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20proyek%20digital%20saya.%20Bisa%20dibantu%3F"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-4 border border-purple-500/30 rounded-full font-semibold text-white hover:bg-purple-600/10 transition-all flex items-center gap-2"
               >
                 Chat via WhatsApp
               </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SEO Content Section - Keywords for Indonesia Market */}
+      <section className="py-16 relative bg-[#030014]">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto"
+          >
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
+              <span className="text-white">
+                Jasa Pembuatan Website & Aplikasi{" "}
+              </span>
+              <span className="gradient-text">Terbaik di Indonesia</span>
+            </h2>
+
+            <div className="grid md:grid-cols-2 gap-8 text-gray-400 text-sm leading-relaxed">
+              <div className="space-y-4">
+                <h3 className="text-white font-semibold text-lg">
+                  AxoIndoSolution - Solusi Digital Terpercaya
+                </h3>
+                <p>
+                  <strong className="text-purple-400">AxoIndoSolution</strong>{" "}
+                  (juga dikenal sebagai{" "}
+                  <strong className="text-purple-400">AxoIndo</strong>, Axo Indo
+                  Solution, atau AxoIndoTechSolution) adalah perusahaan
+                  teknologi profesional yang melayani jasa pembuatan website dan
+                  aplikasi mobile untuk bisnis di seluruh Indonesia.
+                </p>
+                <p>
+                  Kami menyediakan layanan{" "}
+                  <strong>jasa pembuatan website murah</strong> namun
+                  berkualitas tinggi, cocok untuk UMKM, startup, hingga
+                  perusahaan besar. Dengan pengalaman bertahun-tahun, AxoIndo
+                  telah membantu ratusan klien mewujudkan website impian mereka.
+                </p>
+                <p>
+                  Layanan kami meliputi: <strong>jasa bikin website</strong>,
+                  jasa buat website profesional, website company profile, toko
+                  online, landing page, e-commerce, dan berbagai jenis website
+                  lainnya.
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="text-white font-semibold text-lg">
+                  Jasa Pembuatan Aplikasi Mobile
+                </h3>
+                <p>
+                  Selain website,{" "}
+                  <strong className="text-purple-400">AxoIndo Solution</strong>{" "}
+                  juga melayani
+                  <strong> jasa pembuatan aplikasi Android</strong> dan{" "}
+                  <strong>iOS</strong> untuk bisnis Anda. Aplikasi mobile custom
+                  yang kami kembangkan dirancang khusus sesuai kebutuhan bisnis
+                  Anda.
+                </p>
+                <p>
+                  Sebagai <strong>software house Indonesia</strong> yang
+                  terpercaya, kami menggunakan teknologi terbaru seperti React
+                  Native, Flutter, dan framework modern lainnya untuk memastikan
+                  aplikasi Anda cepat, aman, dan user-friendly.
+                </p>
+                <p>
+                  Hubungi <strong>AxoIndoSolution</strong> sekarang untuk
+                  konsultasi GRATIS! Kami melayani klien dari Jakarta, Bekasi,
+                  Bandung, Surabaya, dan seluruh kota di Indonesia.
+                </p>
+              </div>
+            </div>
+
+            {/* Trust Badges */}
+            <div className="mt-10 flex flex-wrap justify-center gap-4 text-xs text-gray-500">
+              <span className="px-3 py-1 glass rounded-full">
+                ✓ Konsultasi Gratis
+              </span>
+              <span className="px-3 py-1 glass rounded-full">
+                ✓ Harga Terjangkau
+              </span>
+              <span className="px-3 py-1 glass rounded-full">
+                ✓ Garansi Kepuasan
+              </span>
+              <span className="px-3 py-1 glass rounded-full">
+                ✓ Support 24/7
+              </span>
+              <span className="px-3 py-1 glass rounded-full">
+                ✓ Tim Profesional
+              </span>
             </div>
           </motion.div>
         </div>

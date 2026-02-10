@@ -166,7 +166,7 @@ const Logo: React.FC<LogoProps> = ({
             AxoIndo
           </span>
           <span className="text-xs font-medium text-gray-400 tracking-wider uppercase">
-            Tech Solution
+            Solution
           </span>
         </motion.div>
       )}
