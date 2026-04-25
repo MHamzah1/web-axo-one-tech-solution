@@ -194,28 +194,25 @@ const portfolioItems = [
 // Testimonials
 const testimonials = [
   {
-    name: "Ahmad Rizky",
+    name: "Wahyu Ardiansyah",
     role: "CEO, TechStart Indonesia",
     content:
       "AxoIndoSolution (AxoIndo) membantu kami membangun platform e-commerce yang luar biasa. Tim yang profesional dan hasil yang memuaskan! Sangat direkomendasikan untuk jasa pembuatan website di Indonesia.",
-    avatar:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
+    avatar: "/testimoni/1.jpeg",
   },
   {
     name: "Sarah Putri",
     role: "Product Manager, HealthApp",
     content:
       "Pengembangan aplikasi mobile kami berjalan lancar berkat tim yang kompeten dan komunikatif. Sangat direkomendasikan!",
-    avatar:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
+    avatar: "/testimoni/2.jpg",
   },
   {
     name: "Budi Santoso",
     role: "CTO, Fintech Solutions",
     content:
       "Infrastruktur cloud yang dibangun sangat scalable dan aman. Kami sangat puas dengan hasilnya.",
-    avatar:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
+    avatar: "/testimoni/3.jpg",
   },
 ];
 
@@ -250,7 +247,7 @@ export default function HomePage() {
         {/* Content */}
         <div className="relative z-10 container mx-auto px-4 text-center">
           {/* Badge */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -260,7 +257,7 @@ export default function HomePage() {
             <span className="text-sm text-gray-300">
               Solusi Digital Inovatif
             </span>
-          </motion.div>
+          </motion.div> */}
 
           {/* Main Title */}
           <motion.div
@@ -674,11 +671,13 @@ export default function HomePage() {
                   spotlightColor="rgba(236, 72, 153, 0.15)"
                 >
                   <div className="flex items-center gap-4 mb-4">
-                    <img
-                      src={testimonial.avatar}
-                      alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover ring-2 ring-purple-500/30"
-                    />
+                    <div className="w-12 h-12 rounded-full ring-2 ring-purple-500/30 overflow-hidden shrink-0">
+                      <img
+                        src={testimonial.avatar}
+                        alt={testimonial.name}
+                        className="w-full h-full object-cover object-top"
+                      />
+                    </div>
                     <div>
                       <h4 className="font-semibold text-white">
                         {testimonial.name}
