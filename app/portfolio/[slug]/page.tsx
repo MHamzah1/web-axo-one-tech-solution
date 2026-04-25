@@ -161,13 +161,19 @@ export default function PortfolioDetailPage() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="lg:col-span-5"
             >
-              <div className="relative rounded-3xl overflow-hidden border border-purple-500/20 group">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+              <div className="relative rounded-3xl overflow-hidden border border-purple-500/20 group bg-gradient-to-br from-neutral-950 via-purple-950/30 to-neutral-950">
+                <div className="aspect-[4/3] flex items-center justify-center overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className={`transition-transform duration-700 group-hover:scale-105 ${
+                      project.category === "Mobile App"
+                        ? "h-full w-auto object-contain"
+                        : "w-full h-full object-cover"
+                    }`}
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 opacity-20 blur-2xl -z-10" />
               </div>
             </motion.div>
@@ -291,8 +297,16 @@ export default function PortfolioDetailPage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {project.gallery.map((image, index) => (
+          <div
+            className={`grid gap-6 ${
+              project.category === "Mobile App"
+                ? "grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+                : "grid-cols-1 md:grid-cols-2"
+            }`}
+          >
+            {project.gallery.map((image, index) => {
+              const isMobile = project.category === "Mobile App";
+              return (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
@@ -301,18 +315,26 @@ export default function PortfolioDetailPage() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 onClick={() => setLightboxIndex(index)}
                 className={`relative rounded-2xl overflow-hidden cursor-pointer group border border-purple-500/20 ${
-                  index === 0 ? "md:col-span-2" : ""
+                  !isMobile && index === 0 ? "md:col-span-2" : ""
                 }`}
               >
                 <div
-                  className={`overflow-hidden ${
-                    index === 0 ? "aspect-[21/9]" : "aspect-[16/10]"
+                  className={`overflow-hidden bg-gradient-to-br from-neutral-950 via-purple-950/30 to-neutral-950 flex items-center justify-center ${
+                    isMobile
+                      ? "aspect-[9/16]"
+                      : index === 0
+                      ? "aspect-[21/9]"
+                      : "aspect-[16/10]"
                   }`}
                 >
                   <img
                     src={image}
                     alt={`${project.title} - Screenshot ${index + 1}`}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className={`transition-transform duration-700 group-hover:scale-110 ${
+                      isMobile
+                        ? "h-full w-auto object-contain"
+                        : "w-full h-full object-cover"
+                    }`}
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
@@ -323,7 +345,8 @@ export default function PortfolioDetailPage() {
                   </div>
                 </div>
               </motion.div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -475,11 +498,15 @@ export default function PortfolioDetailPage() {
                 >
                   <Link href={`/portfolio/${item.slug}`}>
                     <div className="relative rounded-2xl overflow-hidden bg-neutral-900 border border-neutral-800 group cursor-pointer hover:border-purple-500/50 transition-all">
-                      <div className="aspect-[4/3] overflow-hidden">
+                      <div className="aspect-[4/3] overflow-hidden bg-gradient-to-br from-neutral-950 via-purple-950/30 to-neutral-950 flex items-center justify-center">
                         <img
                           src={item.image}
                           alt={item.title}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          className={`transition-transform duration-500 group-hover:scale-110 ${
+                            item.category === "Mobile App"
+                              ? "h-full w-auto object-contain"
+                              : "w-full h-full object-cover"
+                          }`}
                         />
                       </div>
                       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
@@ -593,13 +620,13 @@ export default function PortfolioDetailPage() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="relative max-w-6xl max-h-[85vh] w-full"
+              className="relative inline-flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
               <img
                 src={project.gallery[lightboxIndex]}
                 alt={`${project.title} - ${lightboxIndex + 1}`}
-                className="w-full h-full object-contain rounded-2xl"
+                className="max-w-[90vw] max-h-[85vh] w-auto h-auto object-contain rounded-2xl"
               />
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-black/60 backdrop-blur-sm text-white text-sm">
                 {lightboxIndex + 1} / {project.gallery.length}

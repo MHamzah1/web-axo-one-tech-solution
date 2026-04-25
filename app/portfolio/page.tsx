@@ -95,11 +95,15 @@ export default function PortfolioPage() {
                   className="cursor-pointer group"
                 >
                   <div className="relative rounded-2xl overflow-hidden bg-neutral-900 border border-neutral-800 hover:border-purple-500/40 transition-all">
-                    <div className="aspect-[4/3] overflow-hidden">
+                    <div className="aspect-[4/3] overflow-hidden bg-gradient-to-br from-neutral-950 via-purple-950/30 to-neutral-950 flex items-center justify-center">
                       <img
                         src={item.image}
                         alt={item.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        className={`transition-transform duration-500 group-hover:scale-110 ${
+                          item.category === "Mobile App"
+                            ? "h-full w-auto object-contain"
+                            : "w-full h-full object-cover"
+                        }`}
                       />
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity" />
@@ -167,11 +171,15 @@ export default function PortfolioPage() {
               </button>
 
               {/* Image */}
-              <div className="aspect-video w-full overflow-hidden rounded-t-3xl">
+              <div className="aspect-video w-full overflow-hidden rounded-t-3xl bg-gradient-to-br from-neutral-950 via-purple-950/30 to-neutral-950 flex items-center justify-center">
                 <img
                   src={selectedProject.image}
                   alt={selectedProject.title}
-                  className="w-full h-full object-cover"
+                  className={
+                    selectedProject.category === "Mobile App"
+                      ? "h-full w-auto object-contain"
+                      : "w-full h-full object-cover"
+                  }
                 />
               </div>
 

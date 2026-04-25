@@ -599,11 +599,15 @@ export default function HomePage() {
                   href={`/portfolio/${item.slug}`}
                   className="group relative block rounded-2xl overflow-hidden cursor-pointer"
                 >
-                  <div className="aspect-[16/10]">
+                  <div className="aspect-[16/10] bg-gradient-to-br from-neutral-950 via-purple-950/30 to-neutral-950 flex items-center justify-center overflow-hidden">
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      className={`transition-transform duration-500 group-hover:scale-110 ${
+                        item.category === "Mobile App"
+                          ? "h-full w-auto object-contain"
+                          : "w-full h-full object-cover"
+                      }`}
                     />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6">
