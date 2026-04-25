@@ -166,28 +166,28 @@ const techLogos = [
 // Portfolio items
 const portfolioItems = [
   {
-    title: "E-Commerce Platform",
+    title: "Mediator.com Marketplace & Inspeksi Mobil",
     category: "Web Development",
-    image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
+    image: "/PorfolioProjek/Mediator/2.png",
+    slug: "mediator-marketplace-inspeksi-mobil",
   },
   {
-    title: "Healthcare App",
-    category: "Mobile Application",
-    image:
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop",
+    title: "Aplikasi Mediator Mobil Bekas",
+    category: "Mobile App",
+    image: "/PorfolioProjek/AplikasiMarketplace/1.jpeg",
+    slug: "aplikasi-mediator-mobil-bekas",
   },
   {
-    title: "Fintech Dashboard",
-    category: "UI/UX Design",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-  },
-  {
-    title: "IoT Management System",
+    title: "Sistem Absensi RS Kartika Husada Setu",
     category: "Custom System",
-    image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop",
+    image: "/PorfolioProjek/ProjekAbsensiRS/2.png",
+    slug: "rs-kartika-husada-sistem-absensi",
+  },
+  {
+    title: "PLN Postpaid - Sistem Pembayaran Listrik",
+    category: "Custom System",
+    image: "/PorfolioProjek/PLN/1.png",
+    slug: "pln-postpaid-sistem-pembayaran-listrik",
   },
 ];
 
@@ -594,23 +594,27 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group relative rounded-2xl overflow-hidden cursor-pointer"
               >
-                <div className="aspect-[16/10]">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6">
-                  <span className="text-purple-400 text-sm font-medium mb-2">
-                    {item.category}
-                  </span>
-                  <h3 className="text-xl font-semibold text-white">
-                    {item.title}
-                  </h3>
-                </div>
+                <Link
+                  href={`/portfolio/${item.slug}`}
+                  className="group relative block rounded-2xl overflow-hidden cursor-pointer"
+                >
+                  <div className="aspect-[16/10]">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6">
+                    <span className="text-purple-400 text-sm font-medium mb-2">
+                      {item.category}
+                    </span>
+                    <h3 className="text-xl font-semibold text-white">
+                      {item.title}
+                    </h3>
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </div>
